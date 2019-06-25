@@ -73,6 +73,7 @@ final class ProgressCircleView: UIView {
         animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
         animation.fromValue = startValue
         animation.duration = progressAnimationDuration
+        animation.isRemovedOnCompletion = false
         animation.delegate = self
         circleView.circleLayer.add(animation, forKey: "strokeEnd")
     }
@@ -80,6 +81,6 @@ final class ProgressCircleView: UIView {
 
 extension ProgressCircleView: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        isAnimating = !flag
+        isAnimating = false
     }
 }
