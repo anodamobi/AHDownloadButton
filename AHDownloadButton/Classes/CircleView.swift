@@ -72,6 +72,7 @@ final class CircleView: UIView {
         rotationAnimation.fromValue = 0.0
         rotationAnimation.toValue = CGFloat.pi * 2
         rotationAnimation.duration = 2
+        rotationAnimation.isRemovedOnCompletion = false
         rotationAnimation.repeatCount = .greatestFiniteMagnitude;
         layer.add(rotationAnimation, forKey: animationKey)
     }
