@@ -13,9 +13,8 @@ extension AHDownloadButton {
     func animateTransition(from oldState: State, to newState: State) {
         
         let completion: (Bool) -> Void = { completed in
-            guard completed else { return }
-            self.resetStateViews(except: newState)
             self.animationDispatchGroup.leave()
+            self.resetStateViews(except: newState)
         }
                 
         switch (oldState, newState) {
@@ -49,7 +48,6 @@ extension AHDownloadButton {
             self.layoutIfNeeded()
         }, completion: { completed in
             completion(completed)
-            guard completed else { return }
             self.pendingCircleView.alpha = 1
             self.pendingCircleView.startSpinning()
         })
@@ -62,7 +60,6 @@ extension AHDownloadButton {
             self.layoutIfNeeded()
         }, completion: { completed in
             completion(completed)
-            guard completed else { return }
             self.downloadingButton.alpha = 1
         })
     }
@@ -153,7 +150,6 @@ extension AHDownloadButton {
             downloadedButton.titleLabel?.alpha = 1
             downloadedButtonWidthConstraint.constant = downloadedButtonFullWidth
         }
-        
+        setNeedsUpdateConstraints()
     }
-    
 }
