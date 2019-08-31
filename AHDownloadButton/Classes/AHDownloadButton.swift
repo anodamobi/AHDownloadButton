@@ -51,7 +51,13 @@ public final class AHDownloadButton: UIView {
             startDownloadButton.setTitle(startDownloadButtonTitle, for: .normal)
         }
     }
-    
+
+    public var startDownloadButtonImage: UIImage? {
+        didSet {
+            startDownloadButton.setImage(startDownloadButtonImage, for: .normal)
+        }
+    }
+
     public var startDownloadButtonTitleFont: UIFont = .boldSystemFont(ofSize: 15) {
         didSet {
             startDownloadButton.titleLabel?.font = startDownloadButtonTitleFont
@@ -155,7 +161,13 @@ public final class AHDownloadButton: UIView {
             downloadedButton.setTitle(downloadedButtonTitle, for: .normal)
         }
     }
-    
+
+    public var downloadedButtonImage: UIImage? {
+        didSet {
+            downloadedButton.setImage(downloadedButtonImage, for: .normal)
+        }
+    }
+
     public var downloadedButtonTitleFont: UIFont = .boldSystemFont(ofSize: 15) {
         didSet {
             downloadedButton.titleLabel?.font = downloadedButtonTitleFont
